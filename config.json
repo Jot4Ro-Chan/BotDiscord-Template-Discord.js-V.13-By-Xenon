@@ -1,0 +1,7 @@
+{
+    "token": "--YOURTOKEN--",
+    "prefix": "!",
+    "guildId": "--YOURGUILDID--",
+    "clientId": "--YOURCLIENTID--",
+    "ownerId": "--YOURUSERIDDISCORD--"
+}
