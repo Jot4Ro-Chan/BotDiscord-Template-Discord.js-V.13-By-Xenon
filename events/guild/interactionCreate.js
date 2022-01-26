@@ -9,7 +9,7 @@ module.exports = async (client, interaction) => {
         if(!command) return;
         try {
             if (command.permission) {
-                if (!interaction.member.hasPermission(command.permission)) {
+                if (!interaction.member.permission.has(command.permission)) {
                     const embed = new MessageEmbed()
                         .setTitle('ERROR')
                         .setColor('RED')
@@ -18,6 +18,17 @@ module.exports = async (client, interaction) => {
 
                     return interaction.reply({ embeds: [embed]})
                 
+                }
+            }
+            if (command.botperm) {
+                if (!interaction.guild.me.permissions.has(command.botperm)) {
+                    const embed = new MessageEmbed()
+                        .setTitle('ERROR')
+                        .setColor('RED')
+                        .setDescription('บอทไม่มีสิทธิ์น้าาาาา')
+                        .setFooter(`${client.user.tag}`);
+
+                    return interaction.reply({ embeds: [embed]})
                 }
             }
 
